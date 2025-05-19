@@ -22,6 +22,8 @@ export default async function decorate(block) {
     /**
      * add custom text
      */
+    // eslint-disable-next-line no-console
+    console.log('abc');
     const loginTextContainer = block.querySelector('.dropin-header-container.auth-sign-in-form__title');
     if (loginTextContainer) {
       const loginText = document.createElement('p');
