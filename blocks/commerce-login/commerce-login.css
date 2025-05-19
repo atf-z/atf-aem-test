@@ -1,5 +1,63 @@
-main .commerce-login-container {
-    max-width: 700px;
-    margin: 40px auto;
-    width: 100%;
+.auth-sign-in-form {
+    padding: 0;
+}
+
+.auth-sign-in-form {
+    padding: 0;
+}
+
+.auth-sign-in-form__title {
+    margin-bottom: 0px;
+}
+
+.auth-sign-in-form__title span {
+    font-weight: 500;
+    color: var(--color-neutral-1000);
+}
+
+.login-text {
+    margin: 12px 0 32px;
+    color: #111827;
+}
+
+/*
+ * remove input animations
+ */
+.auth-sign-in-form__form .dropin-input-container .dropin-input__field-icon--left {
+    display: none;
+}
+.auth-sign-in-form__form .dropin-input-container .dropin-input__label--floating {
+    display: none;
+}
+.auth-sign-in-form__form .dropin-input--medium.dropin-input--floating:focus {
+    padding-top: 8px;
+}
+/*
+ * end remove input animations
+ */
+
+.auth-sign-in-form__form__field--email .dropin-input-label-container p,
+.auth-sign-in-form__form__password .dropin-input-label-container p {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: normal;
+
+    &::after {
+        content:" *";
+        color: red;
+    }
+}
+
+.auth-sign-in-form__form__buttons {
+    border-top: solid 1px rgb(182 182 182/ 1 );
+    padding: 16px 0 8px;
+}
+
+.auth-sign-in-form__button--forgot {
+    text-decoration: underline;
+    color: #111827;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: var(--type-base-font-family);
+    letter-spacing: normal;
 }

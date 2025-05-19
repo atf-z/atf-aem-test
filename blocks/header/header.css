@@ -14,7 +14,7 @@ header .nav-wrapper {
   width: 100%;
   z-index: 3;
   position: fixed;
-  border-bottom: 1px solid var(--color-neutral-300);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0px 1px 3px 0px #0000001A;
 }
 
 header nav {
@@ -46,8 +46,8 @@ header nav[aria-expanded='true'] {
     display: flex;
     justify-content: space-between;
     gap: 0 32px;
-    max-width: 1264px;
-    padding: 0 32px;
+    max-width: 1440px;
+    padding: 0 75px;
   }
 
   header nav[aria-expanded='true'] {
@@ -164,14 +164,14 @@ li.nav-drop img {
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 160px;
   height: auto;
+  display: flex;
 }
 
 /* sections */
 header nav .nav-sections {
   grid-area: sections;
-  flex: 1 1 auto;
   display: none;
   visibility: hidden;
 }
@@ -191,8 +191,12 @@ header nav .nav-sections ul {
 
 header nav .nav-sections ul > li,
 header nav .nav-sections ul > li > a {
-  font: var(--type-body-2-strong-font);
-  letter-spacing: var(--type-body-2-strong-letter-spacing);
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1rem;
+    font-family: var(--type-strong-font-family);
+    text-transform: uppercase;
+    color: rgb(30, 41, 59);
 }
 
 header nav .nav-brand a:hover {
@@ -229,7 +233,6 @@ header nav .nav-sections ul > li:empty {
   header nav .nav-sections .default-content-wrapper > ul > li,
   header nav .nav-sections .nav-drop {
     border-radius: 4px;
-    padding: 0 var(--spacing-small);
   }
 
   header nav .nav-sections .nav-drop {

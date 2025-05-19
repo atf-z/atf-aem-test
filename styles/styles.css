@@ -12,13 +12,15 @@
  * governing permissions and limitations under the License.
  */
 
+/*@import url("https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css");*/
+
 /* stylelint-disable no-empty-source */
 :root, .dropin-design {
   /* Adobe Commerce Dropin design tokens */
-  --color-brand-300: #6d6d6d;
-  --color-brand-500: #454545;
-  --color-brand-600: #383838;
-  --color-brand-700: #2b2b2b;
+  --color-brand-300: #1868d8;
+  --color-brand-500: #0a52b7;
+  --color-brand-600: #031e3c;
+  --color-brand-700: #000f2a;
   --color-neutral-50: #fff;
   --color-neutral-100: #fafafa;
   --color-neutral-200: #f5f5f5;
@@ -29,6 +31,7 @@
   --color-neutral-700: #666;
   --color-neutral-800: #3d3d3d;
   --color-neutral-900: #292929;
+  --color-neutral-1000: #000000;
   --color-positive-200: #eff5ef;
   --color-positive-500: #7fb078;
   --color-positive-800: #53824c;
@@ -92,7 +95,7 @@
   --spacing-xxhuge: 192px;
   --type-base-font-family: inter,adobe-clean, roboto, roboto-fallback, system-ui, sans-serif;
   --type-strong-font-family: williams,adobe-clean, roboto, roboto-fallback, system-ui, sans-serif;
-  --type-display-1-font: normal normal 300 6rem/7.2rem var(--type-base-font-family);
+  --type-display-1-font: normal normal 300 3rem var(--type-strong-font-family);
   --type-display-1-letter-spacing: 0.04em;
   --type-display-2-font: normal normal 300 4.8rem/5.6rem var(--type-base-font-family);
   --type-display-2-letter-spacing: 0.04em;
@@ -105,7 +108,7 @@
   --type-headline-2-strong-font: normal normal 700 2rem/2.4rem var(--type-base-font-family);
   --type-headline-2-strong-letter-spacing: 0.04em;
   --type-body-1-default-font: normal normal 300 1.6rem/2.4rem var(--type-base-font-family);
-  --type-body-1-default-letter-spacing: 0.04em;
+  --type-body-1-default-letter-spacing: normal;
   --type-body-1-strong-font: normal normal 700 1.6rem/2.4rem var(--type-base-font-family);
   --type-body-1-strong-letter-spacing: 0.04em;
   --type-body-1-emphasized-font: normal normal 700 1.6rem/2.4rem var(--type-base-font-family);
@@ -118,7 +121,7 @@
   --type-body-2-emphasized-letter-spacing: 0.04em;
   --type-button-1-font: normal normal 400 2rem/2.6rem var(--type-base-font-family);
   --type-button-1-letter-spacing: 0.08em;
-  --type-button-2-font: normal normal 400 1.6rem/2.4rem var(--type-base-font-family);
+  --type-button-2-font: normal normal 700 13px var(--type-strong-font-family);
   --type-button-2-letter-spacing: 0.08em;
   --type-details-caption-1-font: normal normal 400 1.2rem/1.6rem var(--type-base-font-family);
   --type-details-caption-1-letter-spacing: 0.08em;
@@ -130,7 +133,7 @@
   /* Additional tokens */
   --type-fixed-font-family: adobe-clean, "Roboto Mono", menlo, consolas, "Liberation Mono", monospace, system-ui, sans-serif;
   --background-color: var(--color-neutral-50);
-  --nav-height: 6.4rem;
+  --nav-height: 85px;
 }
 
 /* fallback font */
@@ -152,7 +155,7 @@ body {
   font: var(--type-body-1-default-font);
   letter-spacing: var(--type-body-1-default-letter-spacing);
   margin: 0;
-  color: var(--color-neutral-800);
+  color: var(--color-neutral-1000);
   background-color: var(--background-color);
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -292,27 +295,28 @@ a:not(.dropin-design a):hover {
 
 /* buttons */
 main a.button:any-link,
-button.button {
+button.button, .dropin-button.dropin-button--primary {
   box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
-  margin: var(--spacing-small) 0;
   border: var(--shape-border-width-3) solid transparent;
-  border-radius: var(--shape-border-radius-3);
-  padding: 0.5em 1.2em;
+  border-radius: 0;
+  padding: 8px 20px;
   font: var(--type-button-2-font);
   letter-spacing: var(--type-button-2-letter-spacing);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  background-color: var(--color-brand-500);
+  background-color: var(--color-brand-300);
   color: var(--color-neutral-50);
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-transform: uppercase;
+  min-height: 40px;
 }
 
 main a.button:hover,
@@ -390,19 +394,18 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 var(--spacing-medium);
+    max-width: 1440px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex-wrap: wrap;
+    padding: 0 var(--spacing-xlarge);
+    margin: auto;
+    flex-direction: row;
+    box-sizing: border-box;
 }
 
 main > .section:first-of-type {
   margin-top: 0;
-}
-
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 var(--spacing-big);
-  }
 }
 
 /* section metadata */
@@ -478,4 +481,12 @@ body.columns main > .section:empty {
 */
 main[hidden] {
   display: none !important;
+}
+
+/*
+ * Drop-in inputs
+ */
+.dropin-input--medium.dropin-input--floating {
+    border-radius: 0px;
+    padding: 8px 14px;
 }
