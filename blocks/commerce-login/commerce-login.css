@@ -2,12 +2,8 @@
     padding: 0;
 }
 
-.auth-sign-in-form {
-    padding: 0;
-}
-
 .auth-sign-in-form__title {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .auth-sign-in-form__title span {
@@ -23,6 +19,7 @@
 /*
  * remove input animations
  */
+
 .auth-sign-in-form__form .dropin-input-container .dropin-input__field-icon--left {
     display: none;
 }
@@ -32,6 +29,7 @@
 .auth-sign-in-form__form .dropin-input--medium.dropin-input--floating:focus {
     padding-top: 8px;
 }
+
 /*
  * end remove input animations
  */
@@ -60,4 +58,8 @@
     font-size: 16px;
     font-family: var(--type-base-font-family);
     letter-spacing: normal;
+}
+
+main > .section > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
